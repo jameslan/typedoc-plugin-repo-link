@@ -1,0 +1,22 @@
+{
+    "name": "typedoc-plugin-repo-link",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:jameslan/typedoc-plugin-repo-link.git"
+    },
+    "main": "lib/index.js",
+    "scripts": {
+        "init": "mkdir -p lib && opam switch create . --locked -y --deps-only --with-dev-setup",
+        "ci:init": "mkdir -p lib && opam switch create . --locked -y --deps-only",
+        "build": "opam exec -- dune build @melange && cp -f _build/default/src/extension/src/*.js lib/",
+        "upgrade": "opam upgrade -y && opam lock ."
+    },
+    "keywords": [],
+    "peerDependencies": {
+        "typedoc": "0.26.x"
+    },
+    "files": [
+        "lib/*"
+    ]
+}
