@@ -9,7 +9,9 @@
     "scripts": {
         "init": "mkdir -p lib && opam switch create . --locked -y --deps-only --with-dev-setup",
         "ci:init": "mkdir -p lib && opam switch create . --locked -y --deps-only",
-        "build": "opam exec -- dune build @melange && cp -f _build/default/src/extension/src/*.js lib/",
+        "build": "opam exec -- dune build @melange",
+        "watch": "opam exec -- dune build @melange --watch",
+        "prepack": "npm run build && cp -f _build/default/src/out/src/*.js lib/",
         "upgrade": "opam upgrade -y && opam lock ."
     },
     "keywords": [],

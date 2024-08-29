@@ -1,4 +1,5 @@
 /lib/
 /_opam/
 /_build/
+/node_modules/
 /typedoc-plugin-repo-link*.tgz
