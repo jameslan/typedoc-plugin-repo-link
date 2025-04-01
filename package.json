@@ -6,19 +6,23 @@
         "url": "git@github.com:jameslan/typedoc-plugin-repo-link.git"
     },
     "main": "lib/index.js",
+    "type": "module",
     "scripts": {
         "init": "mkdir -p lib && opam switch create . --locked -y --deps-only --with-dev-setup",
         "ci:init": "mkdir -p lib && opam switch create . --locked -y --deps-only",
         "build": "opam exec -- dune build @melange",
         "watch": "opam exec -- dune build @melange --watch",
-        "prepack": "npm run build && cp -f _build/default/src/out/src/*.js lib/",
+        "prepack": "npm run build && cp -f _build/default/src/out/src/*.mjs lib/",
         "upgrade": "opam upgrade -y && opam lock ."
     },
     "keywords": [],
     "peerDependencies": {
-        "typedoc": "0.26.x"
+        "typedoc": "^0.27.x || 0.28.x"
     },
     "files": [
         "lib/*"
-    ]
+    ],
+    "dependencies": {
+        "melange.js": "^5.1.0"
+    }
 }
