@@ -38,10 +38,9 @@ end
 
 module DefaultThemeRenderContext = struct
   type t
-  type toolbar = t -> Models.Reflection.t PageEvent.t -> JSX.element
+  type toolbar =  Models.Reflection.t PageEvent.t -> JSX.element
 
-  (* external set_toolbar : t -> toolbar -> unit = "toolbar" [@@mel.set] *)
-  external set_toolbar : t -> ((t -> Models.Reflection.t PageEvent.t -> JSX.element)[@mel.uncurry]) -> unit = "toolbar" [@@mel.set]
+  external set_toolbar : t -> toolbar -> unit = "toolbar" [@@mel.set]
   external get_toolbar : t -> toolbar = "toolbar" [@@mel.get]
 end
 
