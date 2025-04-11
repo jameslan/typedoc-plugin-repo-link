@@ -1,5 +1,6 @@
 (melange.emit
  (target out)
- (module_systems (es6 mjs))
+ (module_systems (es6 js))
+ (emit_stdlib false)
  (preprocess
   (pps melange.ppx)))
